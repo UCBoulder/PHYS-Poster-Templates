@@ -1,0 +1,319 @@
+/* @theme cu-physics-poster */
+/* @size poster 4558px 3419px */
+
+/*
+ * CU Boulder Physics Department — Poster Theme for MARP
+ * Adapted from the cu-physics.css slide theme.
+ *
+ * Page size: 4558 x 3419 px = 47.48in x 35.61in at 96 DPI
+ * Sized to fit 36" roll printers (HP DesignJet Z6dr) without scaling.
+ *
+ * Export with:
+ *   marp --html --allow-local-files poster.md -o poster.pdf
+ */
+
+@import 'default';
+
+/* ============================================================
+   Color Variables — override these in your poster.md <style> block
+   ============================================================ */
+:root {
+  --cu-gold: #CFB87C;
+  --cu-black: #000000;
+  --cu-dark-gray: #565A5C;
+  --cu-light-gray: #A2A4A3;
+  --cu-sky-blue: #096FAE;
+  --cu-dark-blue: #0A3758;
+  --cu-light-gold: #F3F0E9;
+  --cu-accessible-gold: #8D7334;
+  --cu-white: #FFFFFF;
+
+  /* Poster layout */
+  --header-height: 432px;   /* 4.5in */
+  --content-padding: 72px;  /* 0.75in */
+}
+
+/* ============================================================
+   Page Setup — 4558 x 3419 px (47.48in x 35.61in at 96 DPI)
+   ============================================================ */
+section {
+  width: 4558px;
+  height: 3419px;
+  padding: 0;
+  font-family: 'Helvetica Neue', 'Arial', 'Noto Sans', sans-serif;
+  font-size: 32px;
+  line-height: 1.4;
+  color: var(--cu-black);
+  background-color: var(--cu-white);
+  display: block;
+  overflow: hidden;
+}
+
+/* ============================================================
+   Header Bar
+   Note: Uses .poster-header (not <header>) because MARP
+   reserves the <header> element as a built-in directive.
+   ============================================================ */
+.poster-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--cu-black);
+  color: var(--cu-white);
+  padding: 48px 96px;
+  box-sizing: border-box;
+  border-bottom: 11px solid var(--cu-gold);
+}
+
+.poster-header img {
+  height: 269px;
+  width: auto;
+  margin-right: 96px;
+  flex-shrink: 0;
+}
+
+.poster-header .title-block {
+  flex: 1;
+}
+
+.poster-header h1 {
+  font-size: 96px;
+  font-weight: 700;
+  color: var(--cu-white);
+  margin: 0 0 14px 0;
+  line-height: 1.1;
+  border: none;
+  position: static;
+  padding: 0;
+  background: none;
+}
+
+.poster-header .authors {
+  font-size: 48px;
+  color: var(--cu-light-gray);
+  margin: 0;
+  font-weight: 400;
+}
+
+.poster-header .affiliations {
+  font-size: 37px;
+  color: var(--cu-light-gray);
+  margin: 10px 0 0 0;
+  font-weight: 300;
+}
+
+/* ============================================================
+   Content Area
+   ============================================================ */
+.content {
+  padding: var(--content-padding);
+  height: calc(3419px - var(--header-height));
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   Column Layouts (CSS Grid)
+   ============================================================ */
+.columns-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  height: 100%;
+}
+
+.columns-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 72px;
+  height: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+}
+
+/* ============================================================
+   Section Headings
+   ============================================================ */
+h2 {
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--cu-black);
+  margin: 0 0 19px 0;
+  padding: 0 0 10px 0;
+  border-bottom: 7px solid var(--cu-gold);
+  position: static;
+  background: none;
+  left: auto;
+  right: auto;
+  top: auto;
+}
+
+h3 {
+  font-size: 43px;
+  font-weight: 600;
+  color: var(--cu-dark-gray);
+  margin: 10px 0;
+}
+
+/* ============================================================
+   Body Text
+   ============================================================ */
+p {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+ul, ol {
+  font-size: 32px;
+  line-height: 1.5;
+  margin: 10px 0;
+  padding-left: 48px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   Sections with Background
+   ============================================================ */
+.section-box {
+  background-color: var(--cu-light-gold);
+  border-radius: 11px;
+  padding: 29px;
+}
+
+.highlight-box {
+  background-color: var(--cu-white);
+  border: 4px solid var(--cu-gold);
+  border-radius: 11px;
+  padding: 29px;
+}
+
+/* ============================================================
+   Blockquote Callouts (matching cu-physics.css style)
+   ============================================================ */
+blockquote {
+  border-left: 11px solid var(--cu-gold);
+  background-color: rgba(207, 184, 124, 0.15);
+  padding: 24px 38px;
+  margin: 14px 0;
+  font-style: italic;
+  font-size: 32px;
+  border-radius: 0 11px 11px 0;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* ============================================================
+   Tables
+   ============================================================ */
+table {
+  font-size: 29px;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 14px 0;
+}
+
+th {
+  background-color: var(--cu-gold);
+  color: var(--cu-black);
+  padding: 12px 19px;
+  text-align: left;
+  font-weight: 700;
+}
+
+td {
+  padding: 10px 19px;
+  border-bottom: 3px solid var(--cu-light-gray);
+}
+
+tr:nth-child(even) {
+  background-color: var(--cu-light-gold);
+}
+
+/* ============================================================
+   Figures / Images
+   ============================================================ */
+.figure {
+  text-align: center;
+  margin: 14px 0;
+}
+
+.figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.figure .caption {
+  font-size: 27px;
+  color: var(--cu-dark-gray);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================================
+   KaTeX Math Sizing
+   ============================================================ */
+.katex {
+  font-size: 1.15em;
+}
+
+.katex-display {
+  margin: 14px 0;
+  font-size: 37px;
+}
+
+/* ============================================================
+   References / Small Text
+   ============================================================ */
+.references {
+  font-size: 24px;
+  line-height: 1.4;
+  color: var(--cu-dark-gray);
+}
+
+.references ol {
+  font-size: 24px;
+  padding-left: 38px;
+}
+
+/* ============================================================
+   Acknowledgments
+   ============================================================ */
+.acknowledgments {
+  font-size: 27px;
+  color: var(--cu-dark-gray);
+  border-top: 4px solid var(--cu-gold);
+  padding-top: 14px;
+  margin-top: 19px;
+}
+
+/* ============================================================
+   Utility: full-span element inside columns
+   ============================================================ */
+.full-span {
+  grid-column: 1 / -1;
+}
+
+/* ============================================================
+   Print adjustments
+   ============================================================ */
+@media print {
+  section {
+    width: 4558px;
+    height: 3419px;
+  }
+}
