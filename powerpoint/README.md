@@ -6,11 +6,11 @@ An editable PowerPoint poster template pre-configured with CU Boulder Physics br
 
 The template comes ready to use with:
 
-- **Title banner** — black background with poster title, author names, affiliations, and CU Boulder / Physics logos
+- **Title banner** — black background with poster title, author names, affiliations, and logos
 - **Three-column layout** — column headings with gold underlines
 - **References and Acknowledgments** sections in column 3 with appropriate font sizing
 - **Footer** — email, conference, and URL fields
-- **Branding elements are grouped and locked** to prevent accidental edits
+- **Branding elements are grouped and locked** to prevent accidental edits (these can be unlocked and edited if needed)
 
 ## Getting Started
 
@@ -19,6 +19,10 @@ The template comes ready to use with:
 3. Add your content in each column using text boxes, figures, and tables.
 4. Update the References and Acknowledgments sections.
 5. Update the footer fields (email, conference name, URL).
+
+## Logos
+
+The template includes both the CU Boulder logo (left) and the Physics department logo (right). You can use one or both — delete the logo you don't need, or replace one with a funding agency or research group logo. To change a logo, select the one you want to change. Right-click and then select "Change Picture" from the menu.
 
 ## Adding Content
 
@@ -30,12 +34,10 @@ The template comes ready to use with:
 ## Export to PDF
 
 1. **File** > **Save As** (or **Export**) > **PDF**.
-2. Under **Options**, select **High quality** printing.
-3. Open the PDF and verify the layout before printing.
+2. Open the PDF and verify the layout before printing. See the [main README](../README.md#printing-on-the-department-hp-designjet-36-roll) for detailed print validation steps.
 
 ## Tips
 
 - Use **View** > **Guides** and **Gridlines** to align elements precisely.
 - Group related elements (Ctrl+G) so they move together.
-- To unlock or edit branding elements, right-click and select **Unlock**.
 - If sharing the .pptx file, embed fonts via **File** > **Options** > **Save** > **Embed fonts in the file**.

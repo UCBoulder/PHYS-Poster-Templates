@@ -11,6 +11,18 @@ Templates and guides for creating research posters sized for the department's HP
 | [PowerPoint](powerpoint/) | Pre-built editable template with drag-and-drop editing | Microsoft PowerPoint |
 
 All templates produce a **35.61" x 47.48" landscape PDF** ready for printing.
+
+## Getting the Files
+
+**Download (no git required):** Click the green **Code** button at the top of this page, then select **Download ZIP**. Extract the ZIP and open the folder for your chosen template.
+
+**Clone with git:**
+```bash
+git clone https://github.com/UCBoulder/PHYS-Poster-Templates.git
+```
+
+**PowerPoint only:** If you just need the PowerPoint template, you can download `poster.pptx` directly from the [powerpoint](powerpoint/) folder.
+
 ## Poster Specifications
 
 - **Size**: 35.61" tall x 47.48" wide (landscape orientation) — fits the department's 36" roll printer without scaling
