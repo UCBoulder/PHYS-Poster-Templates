@@ -6,8 +6,8 @@
 
   "latex-workshop.latex.tools": [
     {
-      "name": "pdflatex",
-      "command": "pdflatex",
+      "name": "lualatex",
+      "command": "lualatex",
       "args": ["-synctex=1", "-interaction=nonstopmode", "%DOC%"]
     },
     {
@@ -18,8 +18,8 @@
   ],
   "latex-workshop.latex.recipes": [
     {
-      "name": "pdflatex + bibtex",
-      "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
+      "name": "lualatex + bibtex",
+      "tools": ["lualatex", "bibtex", "lualatex", "lualatex"]
     }
   ]
 }

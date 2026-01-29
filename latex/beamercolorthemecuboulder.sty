@@ -1,0 +1,63 @@
+% CU Boulder color theme for Gemini
+% Maps CU Boulder brand colors to Gemini's color slots
+%
+% Usage: \usecolortheme{cuboulder}
+
+% ====================
+% CU Boulder Color Definitions
+% ====================
+
+\definecolor{CUGold}{HTML}{CFB87C}
+\definecolor{CUBlack}{HTML}{000000}
+\definecolor{CUDarkGray}{HTML}{565A5C}
+\definecolor{CULightGray}{HTML}{A2A4A3}
+\definecolor{CUSkyBlue}{HTML}{096FAE}
+\definecolor{CUDarkBlue}{HTML}{0A3758}
+\definecolor{CULightGold}{HTML}{F3F0E9}
+\definecolor{CUAccessibleGold}{HTML}{8D7334}
+
+% ====================
+% Theme
+% ====================
+
+% Basic colors
+\setbeamercolor{palette primary}{fg=CUBlack,bg=white}
+\setbeamercolor{palette secondary}{fg=CUBlack,bg=white}
+\setbeamercolor{palette tertiary}{bg=CUBlack,fg=white}
+\setbeamercolor{palette quaternary}{fg=CUBlack,bg=white}
+\setbeamercolor{structure}{fg=CUGold}
+
+% Headline — white text on black background, gold accent rule
+\setbeamercolor{headline}{fg=white,bg=CUBlack}
+\setbeamercolor{headline title}{fg=white}
+\setbeamercolor{headline author}{fg=CULightGray}
+\setbeamercolor{headline institute}{fg=CULightGray}
+\setbeamercolor{headline rule}{bg=CUGold}
+
+% Block — black text on white, gold separator line
+\setbeamercolor{block title}{fg=CUBlack,bg=white}
+\setbeamercolor{block separator}{bg=CUGold}
+\setbeamercolor{block body}{fg=CUBlack,bg=white}
+
+% Alert Block — gold-tinted background
+\setbeamercolor{block alerted title}{fg=CUBlack,bg=CULightGold}
+\setbeamercolor{block alerted separator}{bg=CUGold}
+\setbeamercolor{block alerted body}{fg=CUBlack,bg=CULightGold}
+
+% Example Block — light gray background
+\setbeamercolor{block example title}{fg=CUBlack,bg=CULightGold!30!white}
+\setbeamercolor{block example separator}{bg=CUGold}
+\setbeamercolor{block example body}{fg=CUBlack,bg=CULightGold!30!white}
+
+% Heading
+\setbeamercolor{heading}{fg=CUBlack}
+
+% Itemize — gold bullets
+\setbeamercolor{item}{fg=CUGold}
+
+% Bibliography
+\setbeamercolor{bibliography item}{fg=CUBlack}
+\setbeamercolor{bibliography entry author}{fg=CUBlack}
+\setbeamercolor{bibliography entry title}{fg=CUBlack}
+\setbeamercolor{bibliography entry location}{fg=CUDarkGray}
+\setbeamercolor{bibliography entry note}{fg=CUDarkGray}

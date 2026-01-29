@@ -1,23 +1,21 @@
-% CU Boulder Physics Department — Poster Template
-% 35.61" x 47.48" landscape poster using beamerposter (fits 36" roll printers)
+% !TeX program = lualatex
+% !TeX recipe = lualatex + bibtex
+% CU Boulder Physics Department — Gemini Poster Template
+% 35.61" x 47.48" landscape poster using Gemini beamer theme
 %
-% Compile with:
-%   pdflatex poster && bibtex poster && pdflatex poster && pdflatex poster
+% This template uses fontspec and requires LuaLaTeX or XeLaTeX:
+%   lualatex poster && bibtex poster && lualatex poster && lualatex poster
 
 \documentclass[final]{beamer}
-\usepackage[orientation=landscape, size=custom, width=120.60, height=90.45, scale=1.4]{beamerposter}
+\usepackage[orientation=landscape, size=custom, width=120.60, height=90.45, scale=1.0]{beamerposter}
 % Width=47.48in=120.60cm, Height=35.61in=90.45cm (fits 36" roll printers without scaling)
-% scale=1.4 sizes fonts appropriately for poster printing
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
+\usetheme{gemini}
+\usecolortheme{cuboulder}
+
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{multicol}
-\usepackage{ragged2e}
 \hypersetup{hidelinks}
 \usepackage[backend=bibtex, style=numeric-comp, maxnames=3]{biblatex}
 \addbibresource{references.bib}
@@ -27,111 +25,32 @@
 % ============================================================
 
 % Poster metadata
-\newcommand{\postertitle}{Your Poster Title Goes Here}
-\newcommand{\posterauthor}{Author One, Author Two, Author Three}
-\newcommand{\posteraffiliation}{Department of Physics, University of Colorado Boulder}
-\newcommand{\posteremail}{author@colorado.edu}
+\title{Your Poster Title Goes Here}
+\author{Author One \inst{1} \samelineand Author Two \inst{2} \samelineand Author Three \inst{1}}
+\institute[shortinst]{
+  \inst{1} Department of Physics, University of Colorado Boulder \samelineand
+  \inst{2} JILA, University of Colorado Boulder
+}
 
 % Logo paths (relative to this file)
 % To use only one logo, comment out the other with %
-\newcommand{\logoleft}{../assets/Physics_rev_left.png}
-\newcommand{\logoright}{../assets/Physics_rev_left.png}
+\logoleft{\includegraphics[height=3.5cm]{../assets/Boulder_left_lockup_rev_2025.png}}
+\logoright{\includegraphics[height=3.5cm]{../assets/Physics_rev_left.png}}
 
-% Footer content (comment out \footercontent to remove the footer entirely)
-\newcommand{\footercontent}{
+% Footer content (comment out to remove the footer entirely)
+\footercontent{
   \href{mailto:author@colorado.edu}{author@colorado.edu} \hfill
-  ABC Conference 2025, City \hfill
+  ABC Conference 2026, City \hfill
   \href{https://www.colorado.edu}{https://www.colorado.edu}
 }
 
-% Column width: use 0.31\textwidth for 3 columns, 0.47\textwidth for 2 columns
+% Column layout
+\newlength{\sepwidth}
 \newlength{\colwidth}
-\setlength{\colwidth}{0.31\textwidth}
+\setlength{\sepwidth}{0.025\textwidth}
+\setlength{\colwidth}{0.3\textwidth}
 
-% ============================================================
-% === CU BOULDER COLORS ===
-% ============================================================
-
-\definecolor{CUGold}{HTML}{CFB87C}
-\definecolor{CUBlack}{HTML}{000000}
-\definecolor{CUDarkGray}{HTML}{565A5C}
-\definecolor{CULightGray}{HTML}{A2A4A3}
-\definecolor{CUSkyBlue}{HTML}{096FAE}
-\definecolor{CUDarkBlue}{HTML}{0A3758}
-\definecolor{CULightGold}{HTML}{F3F0E9}
-\definecolor{CUAccessibleGold}{HTML}{8D7334}
-
-% ============================================================
-% === BEAMER THEME SETUP ===
-% ============================================================
-
-\usetheme{default}
-\setbeamercolor{background canvas}{bg=white}
-
-% Remove navigation symbols
-\setbeamertemplate{navigation symbols}{}
-
-% Title banner color
-\setbeamercolor{banner}{bg=CUBlack, fg=white}
-\setbeamercolor{gold bar}{bg=CUGold}
-
-% Block styling — rounded corners, generous padding
-\setbeamercolor{block title}{fg=white, bg=CUBlack}
-\setbeamercolor{block body}{fg=CUBlack, bg=CULightGold}
-\setbeamerfont{block title}{size=\LARGE, series=\bfseries}
-\setbeamerfont{block body}{size=\large}
-\setbeamertemplate{block begin}{
-  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false, leftskip=1cm, rightskip=1cm, colsep*=0.75cm]{block title}%
-    \rule[-0.3cm]{0pt}{1.5cm}\usebeamerfont{block title}\insertblocktitle
-  \end{beamercolorbox}%
-  \nointerlineskip
-  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false, vmode, colsep*=0.5cm]{block body}%
-    \vspace{0.3cm}
-    \hspace{1cm}\begin{minipage}{\dimexpr\textwidth-2cm\relax}%
-    \usebeamerfont{block body}%
-}
-\setbeamertemplate{block end}{
-    \end{minipage}\hspace{1cm}%
-    \vspace{0.5cm}
-  \end{beamercolorbox}
-}
-
-% Alternative block (for highlights)
-\setbeamercolor{block alerted title}{fg=white, bg=CUDarkBlue}
-\setbeamercolor{block alerted body}{fg=CUBlack, bg=white}
-\setbeamertemplate{block alerted begin}{
-  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false, leftskip=1cm, rightskip=1cm, colsep*=0.75cm]{block alerted title}%
-    \rule[-0.3cm]{0pt}{1.5cm}\usebeamerfont{block title}\insertblocktitle
-  \end{beamercolorbox}%
-  \nointerlineskip
-  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false, vmode, colsep*=0.5cm]{block alerted body}%
-    \vspace{0.3cm}
-    \hspace{1cm}\begin{minipage}{\dimexpr\textwidth-2cm\relax}%
-    \usebeamerfont{block body}%
-}
-\setbeamertemplate{block alerted end}{
-    \end{minipage}\hspace{1cm}%
-    \vspace{0.5cm}
-  \end{beamercolorbox}
-}
-
-% Itemize styling
-\setbeamercolor{item}{fg=CUGold}
-\setbeamertemplate{itemize item}{\raise0.5pt\hbox{\vrule width 0.8ex height 0.8ex}}
-\setbeamertemplate{itemize subitem}{\raise0.5pt\hbox{\vrule width 0.6ex height 0.6ex}}
-
-% Footer banner (gold line + black bar, mirrors the title banner)
-\setbeamertemplate{footline}{
-  \ifdefined\footercontent
-  \nointerlineskip
-  \begin{beamercolorbox}[wd=\paperwidth, ht=8pt]{gold bar}
-  \end{beamercolorbox}
-  \nointerlineskip
-  \begin{beamercolorbox}[wd=\paperwidth, leftskip=2cm, rightskip=2cm, colsep*=0.75cm]{banner}
-    {\large\color{white}\footercontent\par}
-  \end{beamercolorbox}
-  \fi
-}
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
 
 % ============================================================
 % === DOCUMENT ===
@@ -140,177 +59,176 @@
 \begin{document}
 \begin{frame}[t]
 
-% --- Title Banner (black background, white text, gold accent) ---
-\begin{beamercolorbox}[wd=\paperwidth, leftskip=1.5cm, rightskip=1.5cm]{banner}
-  \vspace{1.5cm}
-  \begin{columns}[b]
-    \begin{column}{0.20\textwidth}
-      % Left logo — comment out \includegraphics to remove
-      \hfill
-      \ifdefined\logoleft\includegraphics[width=0.85\linewidth]{\logoleft}\fi
-    \end{column}
-    \begin{column}{0.60\textwidth}
-      \centering
-      {\VERYHuge\bfseries\color{white}\postertitle\par}
-      \vspace{1cm}
-      {\LARGE\color{CULightGray}\posterauthor\par}
-      \vspace{0.5cm}
-      {\Large\color{CULightGray}\posteraffiliation\par}
-    \end{column}
-    \begin{column}{0.20\textwidth}
-      % Right logo — comment out \includegraphics to remove
-      \ifdefined\logoright\includegraphics[width=0.85\linewidth]{\logoright}\fi
-    \end{column}
-  \end{columns}
-  \vspace{1.5cm}
-\end{beamercolorbox}
-\nointerlineskip
-\begin{beamercolorbox}[wd=\paperwidth, ht=8pt]{gold bar}
-\end{beamercolorbox}
-
-\vspace{1.5cm}
-
-% --- Content Columns ---
-% This template uses 3 columns. For a 2-column layout:
-%   1. Change \colwidth above to 0.47\textwidth
-%   2. Move the Column 3 content into Column 1 or Column 2
-%   3. Delete the Column 3 section below
 \begin{columns}[T]
+
+\separatorcolumn
 
 % === COLUMN 1 ===
 \begin{column}{\colwidth}
 
 \begin{block}{Introduction}
-  Provide the scientific context and motivation for your work. What problem are you
-  addressing, and why does it matter?
-
-  \vspace{0.5cm}
-
-  State the broader context of the research area, explain why this particular question
-  is important, and outline the approach you took to investigate it.
-
-  \vspace{0.5cm}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan
+  fermentum magna, vel pretium arcu fermentum ac. Nunc pellentesque eros sed
+  ligula ultrices varius. Integer vel nunc et mi porta
+  eleifend~\cite{einstein1905}.
 
   \begin{itemize}
-    \item Background on the topic and current state of knowledge
-    \item Key open question or hypothesis being tested
-    \item Brief statement of your experimental or theoretical approach
-    \item Overview of main findings (one sentence)
+    \item Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    \item Pellentesque ultricies velit in fermentum vestibulum
+    \item Nunc a lectus et eros facilisis hendrerit eu non urna
   \end{itemize}
 \end{block}
 
-\vspace{2cm}
-
-\begin{block}{Methods / Experimental Setup}
-  Describe your experimental apparatus, simulation framework, or analytical methods.
-
-  \vspace{0.5cm}
-
-  % Sample equation
-  The relativistic energy-momentum relation is:
+\begin{block}{Theoretical Framework}
+  The spectral energy density $u(\nu, T)$ is given by:
   \begin{equation}
-    E^2 = (pc)^2 + (m_0 c^2)^2
-    \label{eq:energy_momentum}
+    u(\nu, T) = \frac{8\pi h\nu^3}{c^3} \frac{1}{e^{h\nu/k_B T} - 1}
+    \label{eq:planck}
   \end{equation}
-
-  \vspace{0.3cm}
+  where $h$ is Planck's constant, $\nu$ is frequency, $c$ is the speed of
+  light, and $k_B$ is Boltzmann's constant. In the low-frequency limit
+  ($h\nu \ll k_B T$), this reduces to the Rayleigh--Jeans approximation
+  $u(\nu, T) \approx 8\pi\nu^2 k_B T / c^3$.
 
   \begin{itemize}
-    \item Equipment specifications and measurement techniques
-    \item Calibration and systematic uncertainty estimation
-    \item Data collection procedures and sample sizes
-    \item Statistical or computational analysis methods
+    \item In the high-frequency regime, the exponential cutoff dominates
+    \item At low frequencies, the classical approximation holds
+    \item The peak frequency $\nu_{\max}$ shifts linearly with temperature
   \end{itemize}
 \end{block}
 
-\vfill
+\begin{block}{Methods}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+  condimentum sem id semper vulputate. Nam lobortis ultrices iaculis.
+  Maecenas bibendum, sem vel vehicula tempus, nisi tortor eleifend tellus.
+
+  \begin{itemize}
+    \item Duis finibus finibus sapien, ut mollis odio malesuada
+    \item Aenean ut ex augue, quisque vulputate scelerisque eros
+    \item Proin ultrices sodales nulla eu molestie nullam
+  \end{itemize}
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan
+  fermentum magna, vel pretium arcu fermentum ac~\cite{higgs2012}. Nunc
+  pellentesque eros sed ligula ultrices varius. Integer vel nunc et mi porta
+  eleifend. Praesent eget felis a ante facilisis viverra non ut lacus.
+\end{block}
 
 \end{column}
+
+\separatorcolumn
 
 % === COLUMN 2 ===
 \begin{column}{\colwidth}
 
-\begin{block}{Results}
-  Present your key findings with figures, plots, and tables.
-
-  \vspace{0.5cm}
-
-  % Sample figure placeholder — replace with your actual figure
+\begin{block}{Experimental Setup}
   \begin{figure}
     \centering
-    % \includegraphics[width=0.9\columnwidth]{your-figure.pdf}
-    \fbox{\parbox{0.85\columnwidth}{\centering\vspace{8cm}
-      {\LARGE\color{CUDarkGray}[Your figure here]}\\[1cm]
-      {\large Replace this box with \texttt{\textbackslash includegraphics}}
-    \vspace{8cm}}}
-    \caption{Description of your figure. Use 300\,DPI images for best print quality.}
-    \label{fig:result}
+    \includegraphics[width=0.9\columnwidth]{../assets/example-diagram.pdf}
+    \caption{Schematic of the experimental apparatus.}
+    \label{fig:setup}
   \end{figure}
+\end{block}
 
-  \vspace{1cm}
+\begin{alertblock}{Results}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies
+  sed dolor. See Fig.~\ref{fig:setup} and Table~\ref{tab:results}.
 
-  % Sample table
   \begin{table}
     \centering
-    \caption{Sample measurement results.}
+    \caption{Summary of measured experimental parameters.}
     \label{tab:results}
     \begin{tabular}{lcc}
       \toprule
       \textbf{Parameter} & \textbf{Value} & \textbf{Uncertainty} \\
       \midrule
-      Mass (kg) & 1.6 & $\pm\,0.3$ \\
-      Velocity (m/s) & 2.998 $\times 10^8$ & $\pm\,0.001 \times 10^8$ \\
-      Energy (J) & 1.503 $\times 10^{17}$ & $\pm\,0.005 \times 10^{17}$ \\
+      Sample temperature (K) & 4.21 & $\pm\,0.05$ \\
+      Applied field (T) & 1.50 & $\pm\,0.01$ \\
+      Resonance frequency (GHz) & 9.38 & $\pm\,0.02$ \\
+      Linewidth (MHz) & 12.7 & $\pm\,0.3$ \\
+      Signal-to-noise ratio & 42.0 & $\pm\,1.5$ \\
       \bottomrule
     \end{tabular}
   \end{table}
-\end{block}
 
-\vfill
+  The measured spectral distribution is consistent with the theoretical
+  prediction from Eq.~\eqref{eq:planck}, confirming the validity of the
+  model across the full frequency range examined.
+\end{alertblock}
+
+\begin{block}{Data Analysis}
+  Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+  ac turpis egestas. Fusce aliquet pede non pede. Suspendisse dapibus lorem
+  pellentesque magna~\cite{arxiv_example}.
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan
+  fermentum magna, vel pretium arcu fermentum ac. Nunc pellentesque eros sed
+  ligula ultrices varius. Integer vel nunc et mi porta eleifend.
+\end{block}
 
 \end{column}
 
+\separatorcolumn
+
 % === COLUMN 3 ===
-% To switch to a 2-column layout, delete from here to "END COLUMN 3".
+% To switch to a 2-column layout:
+%   1. Change \colwidth to 0.45\textwidth
+%   2. Move Column 3 content into Column 1 or 2
+%   3. Delete the Column 3 section below
 \begin{column}{\colwidth}
 
-\begin{block}{Discussion / Conclusions}
-  Interpret your results and discuss their significance.
-
-  \vspace{0.5cm}
-
-  \begin{itemize}
-    \item Summary of key findings and their quantitative agreement
-    \item Comparison with theoretical predictions or prior experimental results
-    \item Discussion of systematic uncertainties and limitations
-    \item Implications for the field and future directions
-  \end{itemize}
-
-  \vspace{0.5cm}
-
-  As shown in Eq.~\eqref{eq:energy_momentum} and Fig.~\ref{fig:result},
-  our measurements are consistent with the theoretical prediction to within
-  the stated uncertainties.
+\begin{block}{Data Analysis (continued)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{../assets/example-plot.pdf}
+    \caption{Measured values as a function of the control parameter. The gold
+    line shows the theoretical prediction from Eq.~\eqref{eq:planck}; blue
+    points are experimental data with error bars.}
+    \label{fig:result}
+  \end{figure}
 \end{block}
 
-\vspace{2cm}
+\begin{alertblock}{Central Result}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue
+  volutpat elit non semper. Phasellus mauris felis, molestie ac pharetra
+  quis, tempus nec ante.
+\end{alertblock}
+
+\begin{block}{Discussion}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet vel
+  elit dignissim cursus. As shown in Eq.~\eqref{eq:planck} and
+  Fig.~\ref{fig:result}, the results are consistent with our initial
+  hypothesis~\cite{griffiths2018}.
+
+  \begin{itemize}
+    \item Sed luctus elit sit amet dictum maximus
+    \item Pellentesque facilisis dolor in leo bibendum congue
+    \item Maecenas congue finibus justo, vitae eleifend urna facilisis at
+  \end{itemize}
+\end{block}
+
+\begin{exampleblock}{Main Conclusion}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec finibus ante
+  vel purus mollis fermentum~\cite{conference_example}.
+\end{exampleblock}
 
 \begin{block}{References}
+  \nocite{*}
   \printbibliography[heading=none]
 \end{block}
 
-\vspace{2cm}
-
 \begin{block}{Acknowledgments}
-  This work was supported by [funding agency/grant number].
-  We thank [advisor, collaborators, lab group] for valuable discussions
-  and support.
+  This work was supported by the National Science Foundation (Grant
+  No.~PHY-XXXXXXX). We thank Prof.~A.~B.~Smith for valuable discussions,
+  the CU Boulder Department of Physics machine shop for technical support,
+  and Dr.~C.~D.~Jones for assistance with data analysis. Additional thanks
+  to the CU Boulder Department of Physics for poster printing resources.
 \end{block}
 
-\vfill
-
 \end{column}
-% END COLUMN 3
+
+\separatorcolumn
 
 \end{columns}
 

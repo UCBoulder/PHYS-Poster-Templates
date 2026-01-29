@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Helvetica, Arial, sans-serif">
+  <rect width="800" height="450" fill="#ffffff"/>
+  <text x="400" y="30" text-anchor="middle" font-size="22" font-weight="bold" fill="#000">Experimental Setup</text>
+  <!-- Laser source -->
+  <rect x="50" y="160" width="120" height="80" rx="8" fill="#096FAE" fill-opacity="0.15" stroke="#096FAE" stroke-width="2"/>
+  <text x="110" y="197" text-anchor="middle" font-size="14" fill="#0A3758">Laser</text>
+  <text x="110" y="215" text-anchor="middle" font-size="14" fill="#0A3758">Source</text>
+  <!-- Beam path from laser to beam splitter -->
+  <line x1="170" y1="200" x2="250" y2="200" stroke="#CFB87C" stroke-width="2.5"/>
+  <polygon points="245,194 255,200 245,206" fill="#CFB87C"/>
+  <!-- Beam splitter -->
+  <rect x="255" y="170" width="60" height="60" rx="4" fill="#CFB87C" fill-opacity="0.2" stroke="#8D7334" stroke-width="2" transform="rotate(45,285,200)"/>
+  <text x="285" y="255" text-anchor="middle" font-size="13" fill="#565A5C">Beam</text>
+  <text x="285" y="270" text-anchor="middle" font-size="13" fill="#565A5C">Splitter</text>
+  <!-- Beam path to sample -->
+  <line x1="315" y1="200" x2="420" y2="200" stroke="#CFB87C" stroke-width="2.5"/>
+  <polygon points="415,194 425,200 415,206" fill="#CFB87C"/>
+  <!-- Sample chamber -->
+  <rect x="425" y="140" width="140" height="120" rx="12" fill="#F3F0E9" stroke="#565A5C" stroke-width="2"/>
+  <text x="495" y="190" text-anchor="middle" font-size="16" font-weight="bold" fill="#000">Sample</text>
+  <text x="495" y="210" text-anchor="middle" font-size="16" font-weight="bold" fill="#000">Chamber</text>
+  <text x="495" y="235" text-anchor="middle" font-size="13" fill="#565A5C">T = 4.2 K</text>
+  <!-- Cryostat label -->
+  <rect x="440" y="280" width="110" height="30" rx="4" fill="none" stroke="#096FAE" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="495" y="300" text-anchor="middle" font-size="13" fill="#096FAE">Cryostat</text>
+  <line x1="495" y1="260" x2="495" y2="280" stroke="#096FAE" stroke-width="1" stroke-dasharray="5,3"/>
+  <!-- Magnet coils (left and right of sample) -->
+  <rect x="415" y="155" width="10" height="90" rx="2" fill="#096FAE" fill-opacity="0.3" stroke="#096FAE" stroke-width="1.5"/>
+  <rect x="565" y="155" width="10" height="90" rx="2" fill="#096FAE" fill-opacity="0.3" stroke="#096FAE" stroke-width="1.5"/>
+  <text x="405" y="145" text-anchor="middle" font-size="12" fill="#0A3758">B</text>
+  <text x="580" y="145" text-anchor="middle" font-size="12" fill="#0A3758">B</text>
+  <!-- Beam path to detector -->
+  <line x1="565" y1="200" x2="650" y2="200" stroke="#CFB87C" stroke-width="2.5"/>
+  <polygon points="645,194 655,200 645,206" fill="#CFB87C"/>
+  <!-- Detector -->
+  <rect x="655" y="165" width="110" height="70" rx="8" fill="#096FAE" fill-opacity="0.15" stroke="#096FAE" stroke-width="2"/>
+  <text x="710" y="197" text-anchor="middle" font-size="14" fill="#0A3758">Detector</text>
+  <text x="710" y="215" text-anchor="middle" font-size="14" fill="#0A3758">(PMT)</text>
+  <!-- Reference beam path downward from beam splitter -->
+  <line x1="285" y1="230" x2="285" y2="340" stroke="#CFB87C" stroke-width="2.5" stroke-dasharray="8,4"/>
+  <polygon points="279,335 285,345 291,335" fill="#CFB87C"/>
+  <!-- Reference detector -->
+  <rect x="230" y="345" width="110" height="55" rx="8" fill="#096FAE" fill-opacity="0.15" stroke="#096FAE" stroke-width="2"/>
+  <text x="285" y="370" text-anchor="middle" font-size="14" fill="#0A3758">Reference</text>
+  <text x="285" y="387" text-anchor="middle" font-size="14" fill="#0A3758">Detector</text>
+  <!-- DAQ -->
+  <rect x="500" y="360" width="140" height="55" rx="8" fill="#F3F0E9" stroke="#565A5C" stroke-width="2"/>
+  <text x="570" y="385" text-anchor="middle" font-size="14" fill="#000">Data</text>
+  <text x="570" y="403" text-anchor="middle" font-size="14" fill="#000">Acquisition</text>
+  <!-- Arrow from detector to DAQ -->
+  <line x1="710" y1="235" x2="710" y2="387" stroke="#565A5C" stroke-width="1.5"/>
+  <line x1="710" y1="387" x2="640" y2="387" stroke="#565A5C" stroke-width="1.5"/>
+  <polygon points="645,381 635,387 645,393" fill="#565A5C"/>
+  <!-- Arrow from reference detector to DAQ -->
+  <line x1="340" y1="372" x2="500" y2="387" stroke="#565A5C" stroke-width="1.5"/>
+  <polygon points="495,381 505,387 495,393" fill="#565A5C"/>
+  <!-- Input label -->
+  <text x="110" y="145" font-size="15" fill="#096FAE" font-style="italic">λ = 532 nm</text>
+  <!-- Output label -->
+  <text x="710" y="150" font-size="15" fill="#8D7334" font-style="italic">Signal</text>
+</svg>

@@ -3,10 +3,15 @@
 
 /*
  * CU Boulder Physics Department — Poster Theme for MARP
- * Adapted from the cu-physics.css slide theme.
+ * Clean, minimal academic poster style with centered headings and booktabs tables.
  *
- * Page size: 4558 x 3419 px = 47.48in x 35.61in at 96 DPI
+ * Page size: 47.48in x 35.61in (4558 x 3419 px at 96 DPI)
  * Sized to fit 36" roll printers (HP DesignJet Z6dr) without scaling.
+ *
+ * Unit convention:
+ *   Marp renders via Chromium at a fixed 96 DPI, so 1in = 96px exactly.
+ *   Structural / layout dimensions use inches (in) for print clarity.
+ *   Fine details (borders, small padding, font sizes) remain in px.
  *
  * Export with:
  *   marp --html --allow-local-files poster.md -o poster.pdf
@@ -28,20 +33,22 @@
   --cu-accessible-gold: #8D7334;
   --cu-white: #FFFFFF;
 
-  /* Poster layout */
-  --header-height: 432px;   /* 4.5in */
-  --content-padding: 72px;  /* 0.75in */
+  /* Poster layout — structural dimensions in inches (1in = 96px) */
+  --header-height: 4in;    /* 384px */
+  --footer-height: 1in;      /* 96px */
+  --content-padding: 0.75in; /* 72px */
 }
 
 /* ============================================================
-   Page Setup — 4558 x 3419 px (47.48in x 35.61in at 96 DPI)
+   Page Setup — 47.48in x 35.61in (4558 x 3419 px at 96 DPI)
+   Note: @size directive requires px; section uses inches.
    ============================================================ */
 section {
-  width: 4558px;
-  height: 3419px;
-  padding: 0;
+  width: 47.48in;
+  height: 35.61in;
+  padding: 0 !important;
+  margin: 0 !important;
   font-family: 'Helvetica Neue', 'Arial', 'Noto Sans', sans-serif;
-  font-size: 32px;
   line-height: 1.4;
   color: var(--cu-black);
   background-color: var(--cu-white);
@@ -50,38 +57,37 @@ section {
 }
 
 /* ============================================================
-   Header Bar
-   Note: Uses .poster-header (not <header>) because MARP
-   reserves the <header> element as a built-in directive.
+   Header Bar — Two-row layout
+   Row 1: Title centered full-width
+   Row 2: Logo-left | Author/affiliation | Logo-right
    ============================================================ */
 .poster-header {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
   width: 100%;
   height: var(--header-height);
   background-color: var(--cu-black);
   color: var(--cu-white);
-  padding: 48px 96px;
+  padding: 0.125in 1in 0.375in 1in;
   box-sizing: border-box;
   border-bottom: 11px solid var(--cu-gold);
 }
 
-.poster-header img {
-  height: 269px;
-  width: auto;
-  margin-right: 96px;
-  flex-shrink: 0;
+/* Row 1: Title */
+.header-title-row {
+  text-align: center;
+  width: 100%;
 }
 
-.poster-header .title-block {
-  flex: 1;
-}
-
-.poster-header h1 {
+.header-title-row h1 {
   font-size: 96px;
   font-weight: 700;
   color: var(--cu-white);
-  margin: 0 0 14px 0;
+  margin: 0.5in 0 0 0;
   line-height: 1.1;
   border: none;
   position: static;
@@ -89,17 +95,45 @@ section {
   background: none;
 }
 
-.poster-header .authors {
+/* Row 2: Logos + Author */
+.header-info-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.375in;
+}
+
+.header-info-row .logo-left,
+.header-info-row .logo-right {
+  height: 1.25in;   /* 120px */
+  width: auto;
+  flex-shrink: 0;
+}
+
+.header-info-row .logo-left {
+  margin-right: auto;
+}
+
+.header-info-row .logo-right {
+  margin-left: auto;
+}
+
+.author-block {
+  flex: 1;
+  text-align: center;
+}
+
+.author-block .authors {
   font-size: 48px;
   color: var(--cu-light-gray);
   margin: 0;
   font-weight: 400;
 }
 
-.poster-header .affiliations {
+.author-block .affiliations {
   font-size: 37px;
   color: var(--cu-light-gray);
-  margin: 10px 0 0 0;
+  margin: 6px 0 0 0;
   font-weight: 300;
 }
 
@@ -107,9 +141,12 @@ section {
    Content Area
    ============================================================ */
 .content {
-  padding: var(--content-padding);
-  height: calc(3419px - var(--header-height));
+  margin-top: var(--header-height);
+  padding: 0.25in var(--content-padding) var(--content-padding) var(--content-padding);
+  height: calc(35.61in - var(--header-height) - var(--footer-height));
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ============================================================
@@ -118,21 +155,28 @@ section {
 .columns-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  height: 100%;
+  grid-template-rows: 1fr auto;
+  gap: 0.75in;
+  flex: 1;
+  min-height: 0;
 }
 
 .columns-3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 72px;
-  height: 100%;
+  grid-template-rows: 1fr auto;
+  gap: 0.75in;
+  flex: 1;
+  min-height: 0;
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  gap: 38px;
+  gap: 0.4in;
+  text-align: justify;
+  min-height: 0;
+  overflow: hidden;
 }
 
 /* ============================================================
@@ -142,9 +186,10 @@ h2 {
   font-size: 56px;
   font-weight: 700;
   color: var(--cu-black);
-  margin: 0 0 19px 0;
+  margin: 0 0 0.2in 0;
   padding: 0 0 10px 0;
   border-bottom: 7px solid var(--cu-gold);
+  text-align: center;
   position: static;
   background: none;
   left: auto;
@@ -171,7 +216,7 @@ ul, ol {
   font-size: 32px;
   line-height: 1.5;
   margin: 10px 0;
-  padding-left: 48px;
+  padding-left: 0.5in;
 }
 
 li {
@@ -181,27 +226,80 @@ li {
 /* ============================================================
    Sections with Background
    ============================================================ */
-.section-box {
+.highlight-box {
   background-color: var(--cu-light-gold);
   border-radius: 11px;
-  padding: 29px;
-}
-
-.highlight-box {
-  background-color: var(--cu-white);
-  border: 4px solid var(--cu-gold);
-  border-radius: 11px;
-  padding: 29px;
+  padding: 0.3in;
 }
 
 /* ============================================================
-   Blockquote Callouts (matching cu-physics.css style)
+   Highlighted Section — wraps an entire section (heading + content)
+   with a tinted background. Apply to a <div> around h2 + content.
+   Usage in poster.md:
+     <div class="section-highlight">
+
+     ## Section Title
+
+     Content, figures, tables, etc.
+
+     </div>
+   ============================================================ */
+.section-highlight {
+  background-color: var(--cu-light-gold);
+  border-radius: 11px;
+  padding: 0.3in;
+  margin: 0;
+}
+
+/* ============================================================
+   Block Sections — full-width blocks with heading + content
+   Mirrors the "block" style from academic poster templates:
+     .block           — plain block with top/bottom rules
+     .block-highlight — gold-tinted background block
+   Usage in poster.md:
+     <div class="block">
+       <h3>Block Title</h3>
+       <p>Content...</p>
+     </div>
+   ============================================================ */
+.block {
+  border-top: 4px solid var(--cu-dark-gray);
+  border-bottom: 4px solid var(--cu-dark-gray);
+  padding: 0.2in 0.3in;
+  margin: 0.15in 0;
+}
+
+.block h3 {
+  font-size: 43px;
+  font-weight: 700;
+  color: var(--cu-black);
+  margin: 0 0 10px 0;
+}
+
+.block-highlight {
+  background-color: var(--cu-light-gold);
+  border-top: 4px solid var(--cu-gold);
+  border-bottom: 4px solid var(--cu-gold);
+  border-radius: 6px;
+  padding: 0.2in 0.3in;
+  margin: 0.15in 0;
+}
+
+.block-highlight h3 {
+  font-size: 43px;
+  font-weight: 700;
+  color: var(--cu-black);
+  margin: 0 0 10px 0;
+}
+
+/* ============================================================
+   Blockquote Callouts
    ============================================================ */
 blockquote {
   border-left: 11px solid var(--cu-gold);
   background-color: rgba(207, 184, 124, 0.15);
-  padding: 24px 38px;
-  margin: 14px 0;
+  padding: 0.25in 0.4in;
+  margin: 0.15in 0;
   font-style: italic;
   font-size: 32px;
   border-radius: 0 11px 11px 0;
@@ -212,30 +310,42 @@ blockquote p {
 }
 
 /* ============================================================
-   Tables
+   Tables — Booktabs style (clean rules, no fill)
    ============================================================ */
 table {
   font-size: 29px;
   border-collapse: collapse;
-  width: 100%;
-  margin: 14px 0;
+  width: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 0.15in;
+  margin-bottom: 0.15in;
+}
+
+thead {
+  border-top: 4px solid var(--cu-black);
+  border-bottom: 3px solid var(--cu-black);
 }
 
 th {
-  background-color: var(--cu-gold);
+  background-color: transparent;
   color: var(--cu-black);
-  padding: 12px 19px;
+  padding: 12px 0.2in;
   text-align: left;
   font-weight: 700;
 }
 
 td {
-  padding: 10px 19px;
-  border-bottom: 3px solid var(--cu-light-gray);
+  padding: 10px 0.2in;
+  border-bottom: 1px solid var(--cu-light-gray);
+}
+
+tbody {
+  border-bottom: 4px solid var(--cu-black);
 }
 
 tr:nth-child(even) {
-  background-color: var(--cu-light-gold);
+  background-color: transparent;
 }
 
 /* ============================================================
@@ -243,7 +353,21 @@ tr:nth-child(even) {
    ============================================================ */
 .figure {
   text-align: center;
-  margin: 14px 0;
+  margin: 0.15in 0;
+}
+
+.table-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.15in 0;
+}
+
+.table-wrap .caption {
+  font-size: 27px;
+  color: var(--cu-dark-gray);
+  margin-top: 8px;
+  font-style: italic;
 }
 
 .figure img {
@@ -265,14 +389,14 @@ img {
 }
 
 /* ============================================================
-   KaTeX Math Sizing
+   Math Sizing (MathJax)
    ============================================================ */
-.katex {
+mjx-container {
   font-size: 1.15em;
 }
 
-.katex-display {
-  margin: 14px 0;
+mjx-container[display="true"] {
+  margin: 0.15in 0 !important;
   font-size: 37px;
 }
 
@@ -287,7 +411,7 @@ img {
 
 .references ol {
   font-size: 24px;
-  padding-left: 38px;
+  padding-left: 0.4in;
 }
 
 /* ============================================================
@@ -297,8 +421,33 @@ img {
   font-size: 27px;
   color: var(--cu-dark-gray);
   border-top: 4px solid var(--cu-gold);
-  padding-top: 14px;
-  margin-top: 19px;
+  padding-top: 0.15in;
+  margin-top: 0.2in;
+}
+
+.acknowledgments p {
+  font-size: 27px;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   Footer Bar
+   ============================================================ */
+.poster-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--footer-height);
+  box-sizing: border-box;
+  border-top: 7px solid var(--cu-gold);
+  background-color: var(--cu-black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1in;
+  font-size: 28px;
+  color: var(--cu-light-gray);
 }
 
 /* ============================================================
@@ -306,14 +455,4 @@ img {
    ============================================================ */
 .full-span {
   grid-column: 1 / -1;
-}
-
-/* ============================================================
-   Print adjustments
-   ============================================================ */
-@media print {
-  section {
-    width: 4558px;
-    height: 3419px;
-  }
 }

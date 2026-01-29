@@ -13,11 +13,14 @@
 
 # LaTeX output (regenerated on every build)
 latex/*.pdf
+!latex/poster.pdf
 
 # MARP output
 marp/*.pdf
 marp/*.html
 marp/*.pptx
+!marp/poster.pdf
+!marp/poster-skeleton.pdf
 
 # OS files
 .DS_Store

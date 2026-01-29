@@ -7,7 +7,7 @@ Guidelines for creating effective research posters for the CU Boulder Physics De
 - **Visual hierarchy**: The title and key result should be readable from 10 feet away. Details are for close-up reading.
 - **Flow**: Use a column layout (typically 3 columns) that reads left-to-right, top-to-bottom.
 - **White space**: Don't fill every inch. Generous margins and spacing between sections improve readability.
-- **Alignment**: Keep elements aligned to a grid. Ragged layouts look unprofessional at poster scale.
+- **Alignment**: Keep elements aligned to a grid. 
 
 ## Typography at Print Scale
 
@@ -16,13 +16,14 @@ At 36" x 48", fonts need to be much larger than on screen. Target sizes:
 | Element | Size Range |
 |---------|-----------|
 | Title | 72–96 pt |
-| Author names / affiliations | 36–48 pt |
+| Author names | 36–48 pt |
+| Affiliations | 28–36 pt |
 | Section headings | 36–48 pt |
 | Body text | 24–28 pt |
 | Captions and footnotes | 20–24 pt |
 | References | 18–20 pt |
 
-**Font choices**: Use Helvetica Neue (CU's primary font) or Arial as a substitute. Noto Serif works well for body text if you prefer a serif font. Stick to one or two font families.
+**Font choices**: Helvetica Neue is CU's primary brand font; Arial is a widely available substitute. The LaTeX template uses Raleway and Lato (part of the Gemini theme), which are also fine. Stick to one or two font families.
 
 ## CU Color Palette Usage
 
@@ -36,10 +37,45 @@ At 36" x 48", fonts need to be much larger than on screen. Target sizes:
 
 ## Figures and Images
 
-- **Resolution**: Minimum 150 DPI at the printed size, 300 DPI preferred. A figure that appears 8" wide on the poster needs to be at least 1200 x 900 pixels (at 150 DPI).
-- **Vector graphics**: Use PDF, SVG, or EPS for plots and diagrams whenever possible — they scale without quality loss.
-- **Labels**: Make axis labels, tick marks, and legends large enough to read at arm's length (~18–24 pt equivalent).
-- **Captions**: Place a short caption below each figure. Number figures for easy reference.
+### Use vector formats first
+
+Export plots, charts, diagrams, and schematics as **PDF or SVG** whenever possible. Vector graphics are resolution-independent and will always print perfectly sharp, regardless of size. This is the single most effective way to avoid blurry figures.
+
+- **matplotlib**: `plt.savefig('figure.pdf')` or `plt.savefig('figure.svg')`
+- **R / ggplot2**: `ggsave('figure.pdf')` or `ggsave('figure.svg')`
+- **MATLAB**: `exportgraphics(gcf, 'figure.pdf', 'ContentType', 'vector')`
+- **Inkscape / Illustrator / draw.io**: Export as PDF or SVG
+
+Reserve raster formats (PNG, TIFF) for content that cannot be vectorized — photographs, microscopy images, and complex rendered visualizations. Avoid JPEG for figures with sharp edges or text; its lossy compression introduces artifacts.
+
+### Raster image resolution
+
+For raster images, target **300 DPI at the printed size**. The absolute minimum is 150 DPI, but quality loss is noticeable when viewers lean in to 2–3 feet — which they will at a poster session. Going above 300 DPI provides no visible benefit on inkjet plotters and only increases file size.
+
+What matters is **pixel count relative to printed size**, not the DPI metadata tag in the file. Use this formula:
+
+> **Required pixels = printed width (inches) x DPI**
+
+| Figure width on poster | 150 DPI (minimum pixels) | 300 DPI (target pixels) |
+|---|---|---|
+| 4 inches | 600 px | 1,200 px |
+| 6 inches | 900 px | 1,800 px |
+| 8 inches | 1,200 px | 2,400 px |
+| 10 inches | 1,500 px | 3,000 px |
+| 14 inches (full column) | 2,100 px | 4,200 px |
+
+When exporting raster images from code, set the DPI explicitly:
+
+- **matplotlib**: `plt.savefig('figure.png', dpi=300)`
+- **R / ggplot2**: `ggsave('figure.png', dpi= 300)`
+- **MATLAB**: `exportgraphics(gcf, 'figure.png', 'Resolution', 300)`
+
+**Do not upscale low-resolution images.** Enlarging a 72 DPI screenshot to 300 DPI in an image editor just produces a larger blurry image — no detail is added. If an image doesn't have enough pixels, re-export it from the source at a higher resolution, or use a vector format instead.
+
+### Labels and captions
+
+- Make axis labels, tick marks, and legends large enough to read at arm's length (~18–24 pt equivalent minimum).
+- Place a short caption below each figure. Number figures for easy reference.
 
 ## Content Structure
 
@@ -66,27 +102,20 @@ Not every poster needs all sections. Adapt to your content.
 ### Plots and Data
 - Use large axis labels and tick labels (18–24 pt equivalent).
 - Include units on all axes.
-- Use colorblind-friendly color maps (e.g., viridis, cividis — avoid red/green only).
+- Use colorblind-friendly color maps (e.g., viridis, cividis — avoid red/green only). In matplotlib: `plt.set_cmap('viridis')`. To check your figures, upload them to [COBLIS](https://www.color-blindness.com/coblis-color-blindness-simulator/) or use the [Sim Daltonism](https://michelf.ca/projects/sim-daltonism/) app (macOS). See the [matplotlib colormaps reference](https://matplotlib.org/stable/gallery/color/colormap_reference.html) for accessible options.
 - Add legends directly to plots rather than relying on figure captions alone.
 - Error bars should be clearly visible.
 
 ### Data Tables
 - Keep tables small — if the table has more than ~15 entries, consider a plot instead.
-- Use alternating row shading for readability.
+- Use clean horizontal rules (booktabs style) or alternating row shading to distinguish rows. Avoid heavy grid lines.
 - Bold the header row and include units in column headers.
 
 ## Common Mistakes
 
 - **Too much text**: A poster is not a paper. Use bullet points and short sentences. Aim for ~800 words total (excluding references).
-- **Low-resolution images**: Screen-resolution images (72 DPI) look pixelated when printed at poster size. Always check DPI.
+- **Low-resolution images**: Screen-resolution images (72 DPI) look pixelated when printed at poster size. Check pixel dimensions against the printed size (see [Figures and Images](#figures-and-images) above). Export plots as PDF/SVG to avoid the problem entirely.
 - **Poor contrast**: Light text on light backgrounds or small text in low-contrast colors. Test by viewing your poster at 50% zoom — if you can't read it, neither can your audience.
 - **Tiny references**: References should still be readable. 18–20 pt minimum.
 - **No visual focus**: Every poster should have one figure or result that immediately draws the eye.
-- **Missing logo**: Include the CU Physics logo in the title banner. See the `assets/` folder for the department logo.
-
-## Department Branding Placement
-
-- Place the **CU Physics logo** (`assets/Physics_rev_left.png`) in the top-left or top-right of the title banner.
-- The logo works best on a dark (black or dark blue) background. The provided logo is white/reversed.
-- If your work is funded by a grant, include the funding agency logo near the acknowledgments section.
-- Leave the CU logo at its original aspect ratio — do not stretch or distort it.
+- **Missing logo**: Include at least one CU logo in the title banner. See the `assets/` folder for available logos and the template READMEs for how to configure them.

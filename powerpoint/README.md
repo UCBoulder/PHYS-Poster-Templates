@@ -1,101 +1,41 @@
-# PowerPoint Poster Setup Guide
+# PowerPoint Poster Template
 
-Step-by-step instructions for creating a 35.61" x 47.48" landscape research poster in Microsoft PowerPoint with CU Boulder Physics branding. This size fits the department's HP DesignJet Z6dr (36" roll) without needing to scale.
+An editable PowerPoint poster template pre-configured with CU Boulder Physics branding. The slide is sized at **47.48" x 35.61"** (landscape) to fit the department's HP DesignJet Z6dr (36" roll) without scaling.
 
-## 1. Set the Slide Size
+## What's Included
 
-1. Open PowerPoint and create a new blank presentation.
-2. Go to **Design** > **Slide Size** > **Custom Slide Size...**
-3. Set:
-   - **Width**: 47.48 inches
-   - **Height**: 35.61 inches
-   - **Orientation**: Landscape
-4. Click **OK**. When prompted, choose **Ensure Fit**.
+The template comes ready to use with:
 
-## 2. Set Up the Background
+- **Title banner** — black background with poster title, author names, affiliations, and CU Boulder / Physics logos
+- **Three-column layout** — column headings with gold underlines
+- **References and Acknowledgments** sections in column 3 with appropriate font sizing
+- **Footer** — email, conference, and URL fields
+- **Branding elements are grouped and locked** to prevent accidental edits
 
-1. Right-click the slide background > **Format Background**.
-2. Set **Solid fill** with color **White (`#FFFFFF`)**.
-3. Optionally add a thin **CU Gold (`#CFB87C`)** rectangle across the very top of the slide (0.5" tall, full width) as an accent bar.
+## Getting Started
 
-## 3. Create the Title Banner
+1. Open `poster.pptx` in PowerPoint.
+2. Edit the title, authors, and affiliations in the header.
+3. Add your content in each column using text boxes, figures, and tables.
+4. Update the References and Acknowledgments sections.
+5. Update the footer fields (email, conference name, URL).
 
-1. Draw a rectangle across the top of the slide (~6" tall, full 48" width).
-2. Set the fill to **Black (`#000000`)** or **Dark Blue (`#0A3758`)**.
-3. Add text boxes inside for:
-   - **Title**: White text, 72–96 pt, bold
-   - **Authors**: White text, 36–40 pt
-   - **Affiliations**: Light Gray (`#A2A4A3`) text, 28–32 pt
-4. Insert the CU Physics logo:
-   - **Insert** > **Pictures** > select `assets/Physics_rev_left.png`
-   - Place it in the top-left or top-right corner of the title banner
-   - Resize proportionally (hold Shift while dragging corners) to ~4–5" wide
+## Adding Content
 
-## 4. Create the Column Layout
+- **Text**: Add text boxes within the column areas. Use the column headings and guides for alignment.
+- **Figures**: **Insert** > **Pictures**. Use high-resolution images (300 DPI at printed size).
+- **Equations**: Use **Insert** > **Equation** for simple expressions. For complex equations, create them in LaTeX, export as a high-resolution PNG or PDF, and insert as an image.
+- **Section headings**: Copy and paste an existing column heading to match the style.
 
-For a 3-column layout below the title banner:
+## Export to PDF
 
-1. Draw three tall rectangles side by side to use as visual guides:
-   - Each column: ~14.5" wide (with ~1" margins and ~0.75" gaps between columns)
-   - Height: ~28" (from below title banner to near bottom)
-2. Add text boxes within each column for your content sections.
-3. Alternatively, use **Insert** > **Table** with one row and three columns to create an aligned grid, then remove table borders.
-
-**Suggested section placement (3 columns):**
-
-| Column 1 | Column 2 | Column 3 |
-|-----------|----------|----------|
-| Introduction | Results (continued) | Conclusions |
-| Methods / Experiment | | References |
-| Results | | Acknowledgments |
-
-## 5. Typography
-
-- **Recommended font**: Helvetica Neue (if available) or **Arial** as a substitute
-- **Sizes**:
-  - Section headings: 36–48 pt, bold, Black or Dark Gray
-  - Body text: 24–28 pt
-  - Captions: 20–24 pt
-- Add a **CU Gold underline** below section headings for consistency:
-  - Draw a thin rectangle (3 pt tall, column width) colored `#CFB87C` below each heading
-
-## 6. Adding Figures
-
-1. **Insert** > **Pictures** and select your figure file.
-2. Use high-resolution images (300 DPI at the printed size).
-3. Right-click the image > **Size and Position** to set exact dimensions.
-4. Add a text box below for the caption (20–24 pt, Dark Gray).
-
-## 7. Equations
-
-- Use **Insert** > **Equation** for simple expressions.
-- For complex equations, create them in LaTeX, export as a high-resolution PNG or PDF, and insert as an image.
-- Ensure equation images have transparent or white backgrounds.
-
-## 8. Export to PDF
-
-1. **File** > **Save As** (or **Export**).
-2. Choose **PDF** as the format.
-3. Under **Options**, select:
-   - **All slides**
-   - **High quality** / **Best quality** printing
-4. Click **Save**.
-5. Open the PDF and verify the layout, fonts, and images look correct.
-
-## 9. Embedding Fonts (for Sharing the .pptx)
-
-If you need to share the editable PowerPoint file:
-
-1. **File** > **Options** > **Save**.
-2. Check **Embed fonts in the file**.
-3. Select **Embed all characters** for full editability.
-4. Click **OK** and save.
-
-This ensures your fonts display correctly on other computers.
+1. **File** > **Save As** (or **Export**) > **PDF**.
+2. Under **Options**, select **High quality** printing.
+3. Open the PDF and verify the layout before printing.
 
 ## Tips
 
 - Use **View** > **Guides** and **Gridlines** to align elements precisely.
 - Group related elements (Ctrl+G) so they move together.
-- Use **Format Painter** to copy text formatting across sections.
-- Save frequently — large poster files can be slow to render.
+- To unlock or edit branding elements, right-click and select **Unlock**.
+- If sharing the .pptx file, embed fonts via **File** > **Options** > **Save** > **Embed fonts in the file**.
