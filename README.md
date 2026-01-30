@@ -10,7 +10,7 @@ Templates and guides for creating research posters sized for the department's HP
 | [MARP (Markdown)](marp/) | Quick posters written in Markdown with live preview | VS Code + Marp extension, or Marp CLI |
 | [PowerPoint](powerpoint/) | Pre-built editable template with drag-and-drop editing | Microsoft PowerPoint |
 
-All templates produce a **34.82" x 46.43" landscape PDF** ready for printing.
+All templates produce a **34.82" x 46.43" landscape PDF** ready for printing. See the [Poster Design Best Practices](best-practices.md) guide for layout, typography, and image guidelines.
 
 ## Getting the Files
 
@@ -45,7 +45,7 @@ git clone https://github.com/UCBoulder/PHYS-Poster-Templates.git
 
 ## Printing on the Department HP DesignJet (36" Roll)
 
-These templates are sized at 34.82" x 46.43" to fit within the printable area of the HP DesignJet Z6dr with a 36" roll. Print at **100% scale** (no scaling needed). Roll-fed plotters cannot print edge-to-edge, so the templates account for the printer margins.
+These templates are sized at 34.82" x 46.43" to fit within the printable area of the HP DesignJet Z6dr with a 36" roll. No scaling is needed — the templates already account for printer margins.
 
 1. Export your poster to PDF from whichever tool you use.
 2. Open the PDF and check the document properties to confirm the page size is 46.43" x 34.82".

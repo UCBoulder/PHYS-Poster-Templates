@@ -1,6 +1,6 @@
 # MARP Poster Template
 
-A Markdown-based poster template using [MARP](https://marp.app/) (Markdown Presentation Ecosystem) with CU Boulder branding. See [poster.pdf](poster.pdf) for a rendered example.
+A Markdown-based poster template using [MARP](https://marp.app/) (Markdown Presentation Ecosystem) with CU Boulder branding. See [poster.pdf](poster.pdf) for a rendered example, and the [Poster Design Best Practices](../best-practices.md) guide for layout, typography, and image guidelines.
 
 ## What is MARP?
 
