@@ -1,6 +1,6 @@
 # PowerPoint Poster Template
 
-An editable PowerPoint poster template pre-configured with CU Boulder Physics branding. The slide is sized at **46.43" x 34.82"** (landscape) to fit the department's HP DesignJet Z6dr (36" roll) without scaling. See the [Poster Design Best Practices](../best-practices.md) guide for layout, typography, and image guidelines.
+An editable PowerPoint poster template pre-configured with CU Boulder Physics branding. The slide is sized at **47.48" x 35.61"** (landscape) to fit the department's HP DesignJet Z6dr (36" roll) without scaling. See the [Poster Design Best Practices](../best-practices.md) guide for layout, typography, and image guidelines.
 
 ## What's Included
 

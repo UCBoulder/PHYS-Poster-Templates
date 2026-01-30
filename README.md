@@ -10,7 +10,7 @@ Templates and guides for creating research posters sized for the department's HP
 | [MARP (Markdown)](marp/) | Quick posters written in Markdown with live preview | VS Code + Marp extension, or Marp CLI |
 | [PowerPoint](powerpoint/) | Pre-built editable template with drag-and-drop editing | Microsoft PowerPoint |
 
-All templates produce a **34.82" x 46.43" landscape PDF** ready for printing. See the [Poster Design Best Practices](best-practices.md) guide for layout, typography, and image guidelines.
+All templates produce a **35.61" x 47.48" landscape PDF** ready for printing. See the [Poster Design Best Practices](best-practices.md) guide for layout, typography, and image guidelines.
 
 ## Getting the Files
 
@@ -25,7 +25,7 @@ git clone https://github.com/UCBoulder/PHYS-Poster-Templates.git
 
 ## Poster Specifications
 
-- **Size**: 34.82" tall x 46.43" wide (landscape orientation) — fits the department's 36" roll printer without scaling
+- **Size**: 35.61" tall x 47.48" wide (landscape orientation) — fits the department's 36" roll printer without scaling
 - **Format**: Export to PDF before printing
 - **Color space**: RGB (the print shop handles conversion)
 - **Image resolution**: Use vector formats (PDF, SVG) for plots and diagrams — they print sharp at any size. For raster images (photographs, microscopy), target 300 DPI at the printed size (minimum 150 DPI). See [best practices](best-practices.md#figures-and-images) for details.
@@ -45,10 +45,10 @@ git clone https://github.com/UCBoulder/PHYS-Poster-Templates.git
 
 ## Printing on the Department HP DesignJet (36" Roll)
 
-These templates are sized at 34.82" x 46.43" to fit within the printable area of the HP DesignJet Z6dr with a 36" roll. No scaling is needed — the templates already account for printer margins.
+These templates are sized at 35.61" x 47.48" to fit within the printable area of the HP DesignJet Z6dr with a 36" roll when the vertical trimmer is disabled. No scaling is needed — the templates already account for printer margins.
 
 1. Export your poster to PDF from whichever tool you use.
-2. Open the PDF and check the document properties to confirm the page size is 46.43" x 34.82".
+2. Open the PDF and check the document properties to confirm the page size is 47.48" x 35.61".
 3. View at **100% zoom** to verify fonts, images, and layout — any pixelation or blurriness visible at 100% will show on the print.
 4. Submit the PDF to the [Physics Undergraduate Poster Printing Request form](https://forms.office.com/r/B2FXGzebZn) (requires login with your CU email) or other printing service.
 

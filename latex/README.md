@@ -1,6 +1,6 @@
 # LaTeX Poster Template
 
-A [Gemini](https://github.com/anishathalye/gemini)-based `beamerposter` template for 34.82" x 46.43" landscape research posters with CU Boulder Physics branding. Uses a clean, minimal style with thin separator lines and white/light backgrounds, well-suited for information-dense conference posters. See [poster.pdf](poster.pdf) for a rendered example, and the [Poster Design Best Practices](../best-practices.md) guide for layout, typography, and image guidelines.
+A [Gemini](https://github.com/anishathalye/gemini)-based `beamerposter` template for 35.61" x 47.48" landscape research posters with CU Boulder Physics branding. Uses a clean, minimal style with thin separator lines and white/light backgrounds, well-suited for information-dense conference posters. See [poster.pdf](poster.pdf) for a rendered example, and the [Poster Design Best Practices](../best-practices.md) guide for layout, typography, and image guidelines.
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 # Poster Design Best Practices
 
-Guidelines for creating effective research posters for the CU Boulder Physics Department. The default template size is 34.82" x 46.43" (landscape), which fits the department's 36" roll printer without scaling.
+Guidelines for creating effective research posters for the CU Boulder Physics Department. The default template size is 35.61" x 47.48" (landscape), which fits the department's 36" roll printer without scaling.
 
 ## Layout Principles
 
