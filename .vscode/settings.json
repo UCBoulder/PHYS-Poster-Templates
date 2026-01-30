@@ -21,5 +21,8 @@
       "name": "lualatex + bibtex",
       "tools": ["lualatex", "bibtex", "lualatex", "lualatex"]
     }
-  ]
+  ],
+
+  "latex-workshop.latex.clean.method": "glob",
+  "latex-workshop.latex.autoClean.run": "never"
 }

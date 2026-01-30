@@ -1,6 +1,6 @@
 # LaTeX Poster Template
 
-A [Gemini](https://github.com/anishathalye/gemini)-based `beamerposter` template for 35.61" x 47.48" landscape research posters with CU Boulder Physics branding. Uses a clean, minimal style with thin separator lines and white/light backgrounds, well-suited for information-dense conference posters. See [poster.pdf](poster.pdf) for a rendered example.
+A [Gemini](https://github.com/anishathalye/gemini)-based `beamerposter` template for 34.82" x 46.43" landscape research posters with CU Boulder Physics branding. Uses a clean, minimal style with thin separator lines and white/light backgrounds, well-suited for information-dense conference posters. See [poster.pdf](poster.pdf) for a rendered example.
 
 ## Prerequisites
 
@@ -166,13 +166,59 @@ Add entries to `references.bib` and cite with `\cite{key}`. The template uses a 
 
 ## Troubleshooting
 
+### First-time MiKTeX setup
+
+If this is a fresh MiKTeX installation you may see `lualatex: major issue: So far, you have not checked for MiKTeX updates` and compilation will refuse to start. Fix this before anything else:
+
+1. Open **MiKTeX Console** (search for it in the Start menu).
+2. When prompted, check for updates and install any that are available.
+
+Alternatively, from the command line:
+
+```bash
+miktex packages check-update
+miktex packages update
+```
+
 ### "Fatal fontspec error: The font Raleway cannot be found"
 
-The Raleway or Lato fonts are not installed. On TeX Live, install `texlive-fonts-extra`. On MiKTeX, enable automatic package installation in MiKTeX Console > Settings.
+The Gemini theme requires the **Raleway** and **Lato** font families. If either is missing, LuaLaTeX will fail with `metric data not found or bad` errors and every character will appear as `Missing character: There is no X in font nullfont!`.
+
+**Overleaf**: Both fonts are pre-installed. No action needed.
+
+**TeX Live** (Linux/macOS): Install `texlive-fonts-extra`, which includes both fonts as OpenType files.
+
+**MiKTeX** (Windows): MiKTeX may not install these fonts automatically on a fresh install. Install them manually:
+
+1. Open **MiKTeX Console** > **Packages**, search for `raleway` and `lato`, and install both. Or from the command line:
+
+```bash
+miktex packages install raleway
+miktex packages install lato
+```
+
+2. If you prefer automatic installation for all future packages, open **MiKTeX Console** > **Settings** and set "Install missing packages" to **Always**.
 
 ### "! Fatal error occurred, no output PDF file produced" with pdflatex
 
 You're using the wrong compiler. This template requires `lualatex` or `xelatex`, not `pdflatex`. In Overleaf, change the compiler under Menu > Compiler. In VS Code, make sure the `lualatex + bibtex` recipe is selected.
+
+### "(pdf inclusion): reading image failed"
+
+LuaLaTeX failed to include a PDF image. This can happen if a PDF file is corrupted or uses structures that LuaTeX's parser cannot handle. The example figures in `assets/` are provided as both SVG and PDF. If the PDF versions fail, regenerate them from the SVGs:
+
+```bash
+pip install svglib
+python -c "
+from svglib.svglib import svg2rlg
+from reportlab.graphics import renderPDF
+for name in ['example-diagram', 'example-plot']:
+    drawing = svg2rlg(f'assets/{name}.svg')
+    renderPDF.drawToFile(drawing, f'assets/{name}.pdf', fmt='PDF')
+"
+```
+
+For your own figures, vector formats (PDF, SVG) are preferred. If a PDF figure fails to include, try re-exporting it from its source application, or convert it with a tool like Inkscape (`inkscape input.svg --export-filename=output.pdf`).
 
 ### "Empty bibliography" warning
 
@@ -188,7 +234,11 @@ Make sure you have `poster.tex` open as the active editor tab when you trigger t
 
 ### "Script engine 'perl' not found" (latexmk error)
 
-This means the `.vscode/settings.json` build recipe isn't loading. Make sure you opened the **project root** (`PHYS-Poster-Templates/`) as your workspace, not a subfolder.
+LaTeX Workshop uses `latexmk` to clean auxiliary files after a failed build. On MiKTeX, `latexmk` requires Perl, which is not installed by default on Windows.
+
+This error does not affect compilation — it only appears when LaTeX Workshop tries to auto-clean after a build failure. The repo's `.vscode/settings.json` disables `latexmk`-based cleaning to avoid this issue. If you still see this error, make sure you opened the **project root** (`PHYS-Poster-Templates/`) as your VS Code workspace so the settings file loads.
+
+If you want `latexmk` to work for other projects, install [Strawberry Perl](https://strawberryperl.com/) and restart VS Code.
 
 ## File Overview
 

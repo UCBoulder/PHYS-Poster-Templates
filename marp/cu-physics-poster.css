@@ -1,11 +1,11 @@
 /* @theme cu-physics-poster */
-/* @size poster 4558px 3419px */
+/* @size poster 4457px 3343px */
 
 /*
  * CU Boulder Physics Department — Poster Theme for MARP
  * Clean, minimal academic poster style with centered headings and booktabs tables.
  *
- * Page size: 47.48in x 35.61in (4558 x 3419 px at 96 DPI)
+ * Page size: 46.43in x 34.82in (4457 x 3343 px at 96 DPI)
  * Sized to fit 36" roll printers (HP DesignJet Z6dr) without scaling.
  *
  * Unit convention:
@@ -40,12 +40,12 @@
 }
 
 /* ============================================================
-   Page Setup — 47.48in x 35.61in (4558 x 3419 px at 96 DPI)
+   Page Setup — 46.43in x 34.82in (4457 x 3343 px at 96 DPI)
    Note: @size directive requires px; section uses inches.
    ============================================================ */
 section {
-  width: 47.48in;
-  height: 35.61in;
+  width: 46.43in;
+  height: 34.82in;
   padding: 0 !important;
   margin: 0 !important;
   font-family: 'Helvetica Neue', 'Arial', 'Noto Sans', sans-serif;
@@ -143,7 +143,7 @@ section {
 .content {
   margin-top: var(--header-height);
   padding: 0.25in var(--content-padding) var(--content-padding) var(--content-padding);
-  height: calc(35.61in - var(--header-height) - var(--footer-height));
+  height: calc(34.82in - var(--header-height) - var(--footer-height));
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
