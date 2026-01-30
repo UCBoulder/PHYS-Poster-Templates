@@ -50,7 +50,7 @@ These templates are sized at 34.82" x 46.43" to fit within the printable area of
 1. Export your poster to PDF from whichever tool you use.
 2. Open the PDF and check the document properties to confirm the page size is 46.43" x 34.82".
 3. View at **100% zoom** to verify fonts, images, and layout — any pixelation or blurriness visible at 100% will show on the print.
-4. Submit the PDF to the [Physics Undergraduate Poster Printing Request form](https://forms.office.com/r/B2FXGzebZn) or other printing service.
+4. Submit the PDF to the [Physics Undergraduate Poster Printing Request form](https://forms.office.com/r/B2FXGzebZn) (requires login with your CU email) or other printing service.
 
 ## Resources
 
